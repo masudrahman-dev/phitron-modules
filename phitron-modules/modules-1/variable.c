@@ -180,32 +180,192 @@
 // Program to calculate the sum and average of positive numbers
 // If the user enters a negative number, the sum and average are displayed.
 
+// #include <stdio.h>
+
+// int main()
+// {
+
+//     const int maxInput = 100;
+//     int i;
+//     double number, average, sum = 0.0;
+
+//     for (i = 1; i <= maxInput; ++i)
+//     {
+//         printf("%d. Enter a number: ", i);
+//         scanf("%lf", &number);
+
+//         // go to jump if the user enters a negative number
+//         if (number < 0.0)
+//         {
+//             goto jump;
+//         }
+//         sum += number;
+//     }
+
+// jump:
+//     average = sum / (i - 1);
+//     printf("Sum = %.2f\n", sum);
+//     printf("Average = %.2f", average);
+
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// void checkPrimeNumber();
+
+// int main()
+// {
+//     checkPrimeNumber(); // argument is not passed
+//     return 0;
+// }
+
+// // return type is void meaning doesn't return any value
+// void checkPrimeNumber()
+// {
+//     int n, i, flag = 0;
+
+//     printf("Enter a positive integer: ");
+//     scanf("%d", &n);
+
+//     // 0 and 1 are not prime numbers
+//     if (n == 0 || n == 1)
+//         flag = 1;
+
+//     for (i = 2; i <= n / 2; ++i)
+//     {
+//         if (n % i == 0)
+//         {
+//             flag = 1;
+//             break;
+//         }
+//     }
+
+//     if (flag == 1)
+//         printf("%d is not a prime number.", n);
+//     else
+//         printf("%d is a prime number.", n);
+// }
+// #include <stdio.h>
+// int getInteger();
+
+// int main()
+// {
+
+//     int n, i, flag = 0;
+
+//     // no argument is passed
+//     n = getInteger();
+
+//     // 0 and 1 are not prime numbers
+//     if (n == 0 || n == 1)
+//         flag = 1;
+
+//     for (i = 2; i <= n / 2; ++i)
+//     {
+//         if (n % i == 0)
+//         {
+//             flag = 1;
+//             break;
+//         }
+//     }
+
+//     if (flag == 1)
+//         printf("%d is not a prime number.", n);
+//     else
+//         printf("%d is a prime number.", n);
+
+//     return 0;
+// }
+
+// // returns integer entered by the user
+// int getInteger()
+// {
+//     int n;
+
+//     printf("Enter a positive integer: ");
+//     scanf("%d", &n);
+
+//     return n;
+// }
+// #include <stdio.h>
+// void checkPrimeAndDisplay(int n);
+
+// int main()
+// {
+
+//     int n;
+
+//     printf("Enter a positive integer: ");
+//     scanf("%d", &n);
+
+//     // n is passed to the function
+//     checkPrimeAndDisplay(n);
+
+//     return 0;
+// }
+
+// // return type is void meaning doesn't return any value
+// void checkPrimeAndDisplay(int n)
+// {
+//     int i, flag = 0;
+
+//     // 0 and 1 are not prime numbers
+//     if (n == 0 || n == 1)
+//         flag = 1;
+
+//     for (i = 2; i <= n / 2; ++i)
+//     {
+//         if (n % i == 0)
+//         {
+//             flag = 1;
+//             break;
+//         }
+//     }
+
+//     if (flag == 1)
+//         printf("%d is not a prime number.", n);
+//     else
+//         printf("%d is a prime number.", n);
+// }
 #include <stdio.h>
+int checkPrimeNumber(int n);
 
 int main()
 {
 
-    const int maxInput = 100;
+    int n, flag;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    // n is passed to the checkPrimeNumber() function
+    // the returned value is assigned to the flag variable
+    flag = checkPrimeNumber(n);
+
+    if (flag == 1)
+        printf("%d is not a prime number", n);
+    else
+        printf("%d is a prime number", n);
+
+    return 0;
+}
+
+// int is returned from the function
+int checkPrimeNumber(int n)
+{
+
+    // 0 and 1 are not prime numbers
+    if (n == 0 || n == 1)
+        return 1;
+
     int i;
-    double number, average, sum = 0.0;
 
-    for (i = 1; i <= maxInput; ++i)
+    for (i = 2; i <= n / 2; ++i)
     {
-        printf("%d. Enter a number: ", i);
-        scanf("%lf", &number);
-
-        // go to jump if the user enters a negative number
-        if (number < 0.0)
-        {
-            goto jump;
-        }
-        sum += number;
+        if (n % i == 0)
+            return 1;
     }
-
-jump:
-    average = sum / (i - 1);
-    printf("Sum = %.2f\n", sum);
-    printf("Average = %.2f", average);
 
     return 0;
 }
