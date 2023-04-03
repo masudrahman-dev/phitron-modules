@@ -372,27 +372,57 @@
 // Program to take 5 values from the user and store them in an array
 // Print the elements stored in the array
 
+// #include <stdio.h>
+
+// int main()
+// {
+
+//     int values[5];
+
+//     printf("Enter 5 integers: \n");
+
+//     // taking input and storing it in an array
+//     for (int i = 0; i < 5; ++i)
+//     {
+//         scanf("%d", &values[i]);
+//     }
+
+//     printf("Displaying integers: ");
+
+//     // printing elements of an array
+//     for (int i = 0; i < 5; ++i)
+//     {
+//         printf("%d\n", values[i]);
+//     }
+//     return 0;
+// }
+// Program to find the average of n numbers using arrays
+
 #include <stdio.h>
 
 int main()
 {
 
-    int values[5];
+    int marks[10], i, n, sum = 0;
+    double average;
 
-    printf("Enter 5 integers: \n");
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-    // taking input and storing it in an array
-    for (int i = 0; i < 5; ++i)
+    for (i = 0; i < n; ++i)
     {
-        scanf("%d", &values[i]);
+        printf("Enter number%d: ", i + 1);
+        scanf("%d", &marks[i]);
+
+        // adding integers entered by the user to the sum variable
+        sum += marks[i];
     }
 
-    printf("Displaying integers: ");
+    // explicitly convert sum to double
+    // then calculate average
+    average = (double)sum / n;
 
-    // printing elements of an array
-    for (int i = 0; i < 5; ++i)
-    {
-        printf("%d\n", values[i]);
-    }
+    printf("Average = %.2lf", average);
+
     return 0;
 }
