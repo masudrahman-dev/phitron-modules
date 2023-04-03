@@ -69,7 +69,7 @@
 //     printf("%d %d \n", sam1.arr[0], sam1.arr[1]);
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
 
 // int main(void)
 // {
@@ -426,18 +426,67 @@
 
 //     return 0;
 // }
-#include <stdio.h>
-void display(int age1, int age2)
-{
-    printf("%d\n", age1);
-    printf("%d\n", age2);
-}
+// #include <stdio.h>
+// void display(int age1, int age2)
+// {
+//     printf("%d\n", age1);
+//     printf("%d\n", age2);
+// }
 
+// int main()
+// {
+//     int ageArray[] = {2, 8, 4, 12};
+
+//     // pass second and third elements to display()
+//     display(ageArray[1], ageArray[2]);
+//     return 0;
+// }
+// Program to calculate the sum of array elements by passing to a function
+
+// #include <stdio.h>
+// float calculateSum(float num[]);
+
+// int main()
+// {
+//     float result, num[] = {23.4, 55, 22.6, 3, 40.5, 18};
+
+//     // num array is passed to calculateSum()
+//     result = calculateSum(num);
+//     printf("Result = %.2f", result);
+//     return 0;
+// }
+
+// float calculateSum(float num[])
+// {
+//     float sum = 0.0;
+
+//     for (int i = 0; i < 6; ++i)
+//     {
+//         sum += num[i];
+//     }
+
+//     return sum;
+// }
+
+#include <stdio.h>
 int main()
 {
-    int ageArray[] = {2, 8, 4, 12};
+    int *pc, c;
 
-    // pass second and third elements to display()
-    display(ageArray[1], ageArray[2]);
+    c = 22;
+    printf("Address of c: %p\n", &c);
+    printf("Value of c: %d\n\n", c); // 22
+
+    pc = &c;
+    printf("Address of pointer pc: %p\n", pc);
+    printf("Content of pointer pc: %d\n\n", *pc); // 22
+
+    c = 11;
+    printf("Address of pointer pc: %p\n", pc);
+    printf("Content of pointer pc: %d\n\n", *pc); // 11
+
+    *pc = 2;
+    printf("Address of c: %p\n", &c);
+    printf("Value of c: %d\n\n", c); // 2
     return 0;
 }
