@@ -1,12 +1,70 @@
+// #include <stdio.h>
+
+// int main()
+// {
+//     int age = 123;
+//     float price = 23.43;
+//     // char name = 'r';
+//     char name[] = "Musud";
+
+//     printf("%d %f %s", age, price, name);
+
+//     return 0;
+// }
+// #include <stdio.h>
+
+// int main()
+// {
+//     int age = 123;
+//     float price = 23.43;
+//     char name[] = "Masud";
+
+//     printf("%d %f %s", age, price, name);
+
+//     return 0;
+// }
+// #include <stdio.h>
+// #include <stdbool.h>
+// #include <stdalign.h>
+
+// int main(void)
+// {
+//     printf("%d %d %d\n", true && false, true || false, !false);
+//     printf("%d %d\n", true ^ true, true + true);
+//     printf("%zu\n", alignof(short));
+// }
 #include <stdio.h>
 
-int main()
+int main(void)
 {
-    int age = 123;
-    float price = 23.43;
-    char name = 'r';
+    // integers
+    int i = 1, j = 2, k = 3; // initialization, not assignment
 
-    printf("%d %f %c", age, price, name);
+    i = j = k; // values of i and j are now 3
+               //  (i = j) = k; // Error: lvalue required
+    printf("%d %d %d\n", i, j, k);
 
-    return 0;
+    // pointers
+    const char c = 'A';    // initialization; not assignment
+    const char *p = &c;    // initialization; not assignment
+    const char **cpp = &p; // initialization; not assignment
+
+    //  cpp = &p;   // Error: char** is not convertible to const char**
+    *cpp = &c; // OK, char* is convertible to const char*
+    printf("%c \n", **cpp);
+    cpp = 0; // OK, null pointer constant is convertible to any pointer
+
+    // arrays
+    int arr1[2] = {1, 2}, arr2[2] = {3, 4};
+    //  arr1 = arr2; // Error: cannot assign to an array
+    printf("arr1[0]=%d arr1[1]=%d arr2[0]=%d arr2[1]=%d\n",
+           arr1[0], arr1[1], arr2[0], arr2[1]);
+
+    struct
+    {
+        int arr[2];
+    } sam1 = {{5, 6}}, sam2 = {{7, 8}};
+    sam1 = sam2; // OK: can assign arrays wrapped in structs
+
+    printf("%d %d \n", sam1.arr[0], sam1.arr[1]);
 }
