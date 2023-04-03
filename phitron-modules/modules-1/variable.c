@@ -89,17 +89,38 @@
 //     return 0;
 // }
 
-#include <stdbool.h>
+// #include <stdbool.h>
+// #include <stdio.h>
+// #include <ctype.h>
+// int main(void)
+// {
+//     bool b = !(2 + 2 == 4); // not true
+//     printf("!(2+2==4) = %s\n", b ? "true" : "false");
+
+//     int n = isspace('a'); // zero if 'a' is a space, nonzero otherwise
+//     int x = !!n;          // "bang-bang", common C idiom for mapping integers to [0,1]
+//                           // (all non-zero values become 1)
+//     char *a[2] = {"nonspace", "space"};
+//     printf("%s\n", a[x]); // now x can be safely used as an index to array of 2 ints
+// }
+
 #include <stdio.h>
-#include <ctype.h>
+
 int main(void)
 {
-    bool b = !(2 + 2 == 4); // not true
-    printf("!(2+2==4) = %s\n", b ? "true" : "false");
+    short x;
+    // type argument:
+    printf("sizeof(float)          = %zu\n", sizeof(float));
+    printf("sizeof(void(*)(void))  = %zu\n", sizeof(void (*)(void)));
+    printf("sizeof(char[10])       = %zu\n", sizeof(char[10]));
+    //  printf("sizeof(void(void))     = %zu\n", sizeof(void(void))); // Error: function type
+    //  printf("sizeof(char[])         = %zu\n", sizeof(char[])); // Error: incomplete type
 
-    int n = isspace('a'); // zero if 'a' is a space, nonzero otherwise
-    int x = !!n;          // "bang-bang", common C idiom for mapping integers to [0,1]
-                          // (all non-zero values become 1)
-    char *a[2] = {"nonspace", "space"};
-    printf("%s\n", a[x]); // now x can be safely used as an index to array of 2 ints
+    // expression argument:
+    printf("sizeof 'a'             = %zu\n", sizeof 'a'); // type of 'a' is int
+                                                          //  printf("sizeof main            = %zu\n", sizeof main); // Error: Function type
+    printf("sizeof &main           = %zu\n", sizeof &main);
+    printf("sizeof \"hello\"         = %zu\n", sizeof "hello"); // type is char[6]
+    printf("sizeof x               = %zu\n", sizeof x);         // type of x is short
+    printf("sizeof (x+1)           = %zu\n", sizeof(x + 1));    // type of x+1 is int
 }
