@@ -489,17 +489,6 @@
 // declaration, definition and
 // initialization
 
-
-
-
-
-
-
-
-
-
-
-
 // #include <stdio.h>
 
 // int main()
@@ -516,10 +505,9 @@
 //     {
 //         printf("burger khamu na\n");
 //     }
- 
+
 //     return 0;
 // }
-
 
 // Program to calculate the sum of n numbers entered by the user
 
@@ -533,7 +521,7 @@
 //   scanf("%d", &n);
 
 //   ptr = (int*) malloc(n * sizeof(int));
- 
+
 //   // if memory cannot be allocated
 //   if(ptr == NULL) {
 //     printf("Error! memory not allocated.");
@@ -547,7 +535,7 @@
 //   }
 
 //   printf("Sum = %d", sum);
-  
+
 //   // deallocating the memory
 //   free(ptr);
 
@@ -564,29 +552,124 @@
 //     return 0;
 // }
 
+// #include <stdio.h>
+// #include <string.h>
+
+// // create struct with person1 variable
+// struct Person {
+//   char name[50];
+//   int citNo;
+//   float salary;
+// } person1;
+
+// int main() {
+
+//   // assign value to name of person1
+//   strcpy(person1.name, "George Orwell");
+
+//   // assign values to other person1 variables
+//   person1.citNo = 1984;
+//   person1. salary = 2500;
+
+//   // print struct variables
+//   printf("Name: %s\n", person1.name);
+//   printf("Citizenship No.: %d\n", person1.citNo);
+//   printf("Salary: %.2f", person1.salary);
+
+//   return 0;
+// }
+
+// problem 1
+// #include<stdio.h>
+// int main()
+// {
+// printf("Recently I heard that you’ve achieved\n95%% marks in your exam.\nThis is brilliant!\nI wish you’ll shine in your life!\tGood\nluck with all the barriers(/\\) in your life.\n");
+
+//  return 0;
+// }
+
+// problem 2
+// #include <stdio.h>
+// int main()
+// {
+//     int a, b, result;
+//     printf("enter a and b\n");
+//     scanf("%d %d", &a, &b);
+
+//     result = a + b;
+//     printf("%d + %d  = %d\n", a, b, result);
+//     result = a - b;
+//     printf("%d - %d  = %d\n", a, b, result);
+//     result = a * b;
+//     printf("%d * %d  = %d\n", a, b, result);
+//     result = a / b;
+//     printf("%d / %d  = %d\n", a, b, result);
+//     result = a % b;
+//     printf("%d %% %d  = %d\n", a, b, result);
+//     return 0;
+// }
+
+// problem 3
+// #include <stdio.h>
+// int main()
+// {
+//     int n;
+//     scanf("%d", &n);
+//     if (n % 2 == 0)
+//     {
+//         printf("even\n");
+//     }
+//     else
+//     {
+//         printf("odd\n");
+//     }
+
+//     return 0;
+// }
+
+// problem 4
+// #include <stdio.h>
+// int main()
+// {
+//     int n;
+//     scanf("%d",&n);
+
+//     if (n > 0)
+//     {
+//         printf("positive\n");
+//     }
+//     else if (n < 0)
+//     {
+//         printf("negative\n");
+//     }else{
+//         printf("zero\n");
+
+//     }
+
+//     return 0;
+// }
+
 #include <stdio.h>
-#include <string.h>
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    if (n > 10000)
+    {
+        printf("Gucci bag\n");
+        if (n > 20000)
+        {
+            printf("Gucci Belt\n");
+        }
+    }
+    else if (n > 5000)
+    {
+        printf("Levis Bag\n");
+    }
+    else
+    {
+        printf("Something\n");
+    }
 
-// create struct with person1 variable
-struct Person {
-  char name[50];
-  int citNo;
-  float salary;
-} person1;
-
-int main() {
-
-  // assign value to name of person1
-  strcpy(person1.name, "George Orwell");
-
-  // assign values to other person1 variables
-  person1.citNo = 1984;
-  person1. salary = 2500;
-
-  // print struct variables
-  printf("Name: %s\n", person1.name);
-  printf("Citizenship No.: %d\n", person1.citNo);
-  printf("Salary: %.2f", person1.salary);
-
-  return 0;
+    return 0;
 }
