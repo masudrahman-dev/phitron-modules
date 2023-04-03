@@ -71,20 +71,35 @@
 
 #include <stdio.h>
 
+// int main(void)
+// {
+//     int x = 10;
+//     int hundred = 100;
+//     int ten = 10;
+//     int fifty = 50;
+
+//     printf("%d %d %d %d\n", x, hundred, ten, fifty);
+
+//     hundred *= x;
+//     ten /= x;
+//     fifty %= x;
+
+//     printf("%d %d %d %d\n", x, hundred, ten, fifty);
+
+//     return 0;
+// }
+
+#include <stdbool.h>
+#include <stdio.h>
+#include <ctype.h>
 int main(void)
 {
-    int x = 10;
-    int hundred = 100;
-    int ten = 10;
-    int fifty = 50;
+    bool b = !(2 + 2 == 4); // not true
+    printf("!(2+2==4) = %s\n", b ? "true" : "false");
 
-    printf("%d %d %d %d\n", x, hundred, ten, fifty);
-
-    hundred *= x;
-    ten /= x;
-    fifty %= x;
-
-    printf("%d %d %d %d\n", x, hundred, ten, fifty);
-
-    return 0;
+    int n = isspace('a'); // zero if 'a' is a space, nonzero otherwise
+    int x = !!n;          // "bang-bang", common C idiom for mapping integers to [0,1]
+                          // (all non-zero values become 1)
+    char *a[2] = {"nonspace", "space"};
+    printf("%s\n", a[x]); // now x can be safely used as an index to array of 2 ints
 }
