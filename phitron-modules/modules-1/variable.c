@@ -523,33 +523,70 @@
 
 // Program to calculate the sum of n numbers entered by the user
 
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// int main() {
+//   int n, i, *ptr, sum = 0;
+
+//   printf("Enter number of elements: ");
+//   scanf("%d", &n);
+
+//   ptr = (int*) malloc(n * sizeof(int));
+ 
+//   // if memory cannot be allocated
+//   if(ptr == NULL) {
+//     printf("Error! memory not allocated.");
+//     exit(0);
+//   }
+
+//   printf("Enter elements: ");
+//   for(i = 0; i < n; ++i) {
+//     scanf("%d", ptr + i);
+//     sum += *(ptr + i);
+//   }
+
+//   printf("Sum = %d", sum);
+  
+//   // deallocating the memory
+//   free(ptr);
+
+//   return 0;
+// }
+// #include <stdio.h>
+// int main()
+// {
+//     char name[30];
+//     printf("Enter name: ");
+//     fgets(name, sizeof(name), stdin);  // read string
+//     printf("Name: ");
+//     puts(name);    // display string
+//     return 0;
+// }
+
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
+
+// create struct with person1 variable
+struct Person {
+  char name[50];
+  int citNo;
+  float salary;
+} person1;
 
 int main() {
-  int n, i, *ptr, sum = 0;
 
-  printf("Enter number of elements: ");
-  scanf("%d", &n);
+  // assign value to name of person1
+  strcpy(person1.name, "George Orwell");
 
-  ptr = (int*) malloc(n * sizeof(int));
- 
-  // if memory cannot be allocated
-  if(ptr == NULL) {
-    printf("Error! memory not allocated.");
-    exit(0);
-  }
+  // assign values to other person1 variables
+  person1.citNo = 1984;
+  person1. salary = 2500;
 
-  printf("Enter elements: ");
-  for(i = 0; i < n; ++i) {
-    scanf("%d", ptr + i);
-    sum += *(ptr + i);
-  }
-
-  printf("Sum = %d", sum);
-  
-  // deallocating the memory
-  free(ptr);
+  // print struct variables
+  printf("Name: %s\n", person1.name);
+  printf("Citizenship No.: %d\n", person1.citNo);
+  printf("Salary: %.2f", person1.salary);
 
   return 0;
 }
