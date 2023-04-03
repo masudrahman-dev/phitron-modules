@@ -104,23 +104,76 @@
 //     printf("%s\n", a[x]); // now x can be safely used as an index to array of 2 ints
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
 
+// int main(void)
+// {
+//     short x;
+//     // type argument:
+//     printf("sizeof(float)          = %zu\n", sizeof(float));
+//     printf("sizeof(void(*)(void))  = %zu\n", sizeof(void (*)(void)));
+//     printf("sizeof(char[10])       = %zu\n", sizeof(char[10]));
+//     //  printf("sizeof(void(void))     = %zu\n", sizeof(void(void))); // Error: function type
+//     //  printf("sizeof(char[])         = %zu\n", sizeof(char[])); // Error: incomplete type
+
+//     // expression argument:
+//     printf("sizeof 'a'             = %zu\n", sizeof 'a'); // type of 'a' is int
+//                                                           //  printf("sizeof main            = %zu\n", sizeof main); // Error: Function type
+//     printf("sizeof &main           = %zu\n", sizeof &main);
+//     printf("sizeof \"hello\"         = %zu\n", sizeof "hello"); // type is char[6]
+//     printf("sizeof x               = %zu\n", sizeof x);         // type of x is short
+//     printf("sizeof (x+1)           = %zu\n", sizeof(x + 1));    // type of x+1 is int
+// }
+
+#include <inttypes.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <uchar.h>
+#include <locale.h>
 int main(void)
 {
-    short x;
-    // type argument:
-    printf("sizeof(float)          = %zu\n", sizeof(float));
-    printf("sizeof(void(*)(void))  = %zu\n", sizeof(void (*)(void)));
-    printf("sizeof(char[10])       = %zu\n", sizeof(char[10]));
-    //  printf("sizeof(void(void))     = %zu\n", sizeof(void(void))); // Error: function type
-    //  printf("sizeof(char[])         = %zu\n", sizeof(char[])); // Error: incomplete type
+    char s1[] = "a猫🍌"; // or "a\u732B\U0001F34C"
+#if __STDC_VERSION__ > 201710L
+    char8_t
+#else
+    char
+#endif
+        s2[] = u8"a猫🍌";
+    char16_t s3[] = u"a猫🍌";
+    char32_t s4[] = U"a猫🍌";
+    wchar_t s5[] = L"a猫🍌";
 
-    // expression argument:
-    printf("sizeof 'a'             = %zu\n", sizeof 'a'); // type of 'a' is int
-                                                          //  printf("sizeof main            = %zu\n", sizeof main); // Error: Function type
-    printf("sizeof &main           = %zu\n", sizeof &main);
-    printf("sizeof \"hello\"         = %zu\n", sizeof "hello"); // type is char[6]
-    printf("sizeof x               = %zu\n", sizeof x);         // type of x is short
-    printf("sizeof (x+1)           = %zu\n", sizeof(x + 1));    // type of x+1 is int
+    setlocale(LC_ALL, "en_US.utf8");
+    printf("  \"%s\" is a char[%zu] holding     { ", s1, sizeof s1 / sizeof *s1);
+    for (size_t n = 0; n < sizeof s1 / sizeof *s1; ++n)
+        printf("0x%02X ", +(unsigned char)s1[n]);
+    puts("}");
+    printf(
+#if __STDC_VERSION__ > 201710L
+        "u8\"%s\" is a char8_t[%zu] holding  { "
+#else
+        "u8\"%s\" is a char[%zu] holding     { "
+#endif
+        ,
+        s2, sizeof s2 / sizeof *s2);
+    for (size_t n = 0; n < sizeof s2 / sizeof *s2; ++n)
+#if __STDC_VERSION__ > 201710L
+        printf("0x%02X ", s2[n]);
+#else
+        printf("0x%02X ", +(unsigned char)s2[n]);
+#endif
+    puts("}");
+    printf(" u\"a猫🍌\" is a char16_t[%zu] holding { ", sizeof s3 / sizeof *s3);
+    for (size_t n = 0; n < sizeof s3 / sizeof *s3; ++n)
+        printf("0x%04" PRIXLEAST16 " ", s3[n]);
+    puts("}");
+    printf(" U\"a猫🍌\" is a char32_t[%zu] holding { ", sizeof s4 / sizeof *s4);
+    for (size_t n = 0; n < sizeof s4 / sizeof *s4; ++n)
+        printf("0x%08" PRIXLEAST32 " ", s4[n]);
+    puts("}");
+    printf(" L\"%ls\" is a wchar_t[%zu] holding  { ", s5, sizeof s5 / sizeof *s5);
+    for (size_t n = 0; n < sizeof s5 / sizeof *s5; ++n)
+        printf("0x%08X ", (unsigned)s5[n]);
+    puts("}");
 }
