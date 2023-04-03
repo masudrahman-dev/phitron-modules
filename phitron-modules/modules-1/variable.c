@@ -468,25 +468,46 @@
 //     return sum;
 // }
 
+// #include <stdio.h>
+// int main()
+// {
+//     int *pc, c;
+
+//     c = 22;
+//     printf("Address of c: %p\n", &c);
+//     printf("Value of c: %d\n\n", c); // 22
+
+//     pc = &c;
+//     printf("Address of pointer pc: %p\n", pc);
+//     printf("Content of pointer pc: %d\n\n", *pc); // 22
+
+//     c = 11;
+//     printf("Address of pointer pc: %p\n", pc);
+//     printf("Content of pointer pc: %d\n\n", *pc); // 11
+
+// C program to demonstrate the
+// declaration, definition and
+// initialization
+
+
+
+
 #include <stdio.h>
+
 int main()
 {
-    int *pc, c;
+    int tk;
 
-    c = 22;
-    printf("Address of c: %p\n", &c);
-    printf("Value of c: %d\n\n", c); // 22
+    scanf("%d", &tk);
 
-    pc = &c;
-    printf("Address of pointer pc: %p\n", pc);
-    printf("Content of pointer pc: %d\n\n", *pc); // 22
-
-    c = 11;
-    printf("Address of pointer pc: %p\n", pc);
-    printf("Content of pointer pc: %d\n\n", *pc); // 11
-
-    *pc = 2;
-    printf("Address of c: %p\n", &c);
-    printf("Value of c: %d\n\n", c); // 2
+    if (tk == 100)
+    {
+        printf("burger khamu\n");
+    }
+    else
+    {
+        printf("burger khamu na\n");
+    }
+ 
     return 0;
 }
