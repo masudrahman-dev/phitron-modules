@@ -398,31 +398,46 @@
 // }
 // Program to find the average of n numbers using arrays
 
+// #include <stdio.h>
+
+// int main()
+// {
+
+//     int marks[10], i, n, sum = 0;
+//     double average;
+
+//     printf("Enter number of elements: ");
+//     scanf("%d", &n);
+
+//     for (i = 0; i < n; ++i)
+//     {
+//         printf("Enter number%d: ", i + 1);
+//         scanf("%d", &marks[i]);
+
+//         // adding integers entered by the user to the sum variable
+//         sum += marks[i];
+//     }
+
+//     // explicitly convert sum to double
+//     // then calculate average
+//     average = (double)sum / n;
+
+//     printf("Average = %.2lf", average);
+
+//     return 0;
+// }
 #include <stdio.h>
+void display(int age1, int age2)
+{
+    printf("%d\n", age1);
+    printf("%d\n", age2);
+}
 
 int main()
 {
+    int ageArray[] = {2, 8, 4, 12};
 
-    int marks[10], i, n, sum = 0;
-    double average;
-
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
-
-    for (i = 0; i < n; ++i)
-    {
-        printf("Enter number%d: ", i + 1);
-        scanf("%d", &marks[i]);
-
-        // adding integers entered by the user to the sum variable
-        sum += marks[i];
-    }
-
-    // explicitly convert sum to double
-    // then calculate average
-    average = (double)sum / n;
-
-    printf("Average = %.2lf", average);
-
+    // pass second and third elements to display()
+    display(ageArray[1], ageArray[2]);
     return 0;
 }
