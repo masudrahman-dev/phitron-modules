@@ -649,27 +649,97 @@
 //     return 0;
 // }
 
+// #include <stdio.h>
+// int main()
+// {
+//     int n;
+//     scanf("%d", &n);
+//     if (n > 10000)
+//     {
+//         printf("Gucci bag\n");
+//         if (n > 20000)
+//         {
+//             printf("Gucci Belt\n");
+//         }
+//     }
+//     else if (n > 5000)
+//     {
+//         printf("Levis Bag\n");
+//     }
+//     else
+//     {
+//         printf("Something\n");
+//     }
+
+//     return 0;
+// }
+// #include <stdio.h>
+// int main()
+// {
+//     if (1)
+//     {
+//         // code will be execute
+//         printf("1\n");
+//     }
+
+//     if (0)
+//     {
+//         // code not execute
+//         printf("0\n");
+//     }
+
+//     // 1 == true 0 == false
+
+//     return 0;
+// }
+
+// #include <stdio.h>
+// int main()
+// {
+//     int a=0, i;
+//     for (i = 0; i < 5; i++)
+//     {
+//         continue;
+//     }
+//     printf("%d %d\n", i, a);
+
+//     return 0;
+// }
 #include <stdio.h>
+
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    if (n > 10000)
+    int a = 0, b = 0;
+    for (int i = 0; i < 6; i++)
     {
-        printf("Gucci bag\n");
-        if (n > 20000)
+        if (i != 4)
         {
-            printf("Gucci Belt\n");
+            printf(" before value of a: %d\n", a);
+            a++;
+            printf(" after value of a: %d\n", a);
+            continue;
+            printf(" under continue statement %d \n", i); // under continue statement i != 4
+        }
+        printf("outside continue statement %d \n", i); // this statement is skipped each time i != 5
+    }
+    printf(" final value of a: %d\n", a);
+
+    printf("\n");
+
+    for (int j = 0; j < 2; j++)
+    {
+        for (int k = 0; k < 5; k++)
+        { // only this loop is affected by continue
+            if (k == 3)
+            {
+                printf(" before value of a: %d\n", a);
+                b++;
+                printf(" after value of a: %d\n", a);
+                continue;
+                printf("under continue statement %d%d \n", j, k); // this statement is skipped each time k == 3
+            }
+            printf("outside continue statement %d%d \n", j, k); // this statement is skipped each time k == 3
         }
     }
-    else if (n > 5000)
-    {
-        printf("Levis Bag\n");
-    }
-    else
-    {
-        printf("Something\n");
-    }
-
-    return 0;
+    printf(" final value of b: %d\n", b);
 }
