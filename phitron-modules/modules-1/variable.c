@@ -705,41 +705,105 @@
 
 //     return 0;
 // }
-#include <stdio.h>
 
+// continue statement
+// #include <stdio.h>
+
+// int main()
+// {
+//     int a = 0, b = 0;
+//     for (int i = 0; i < 6; i++)
+//     {
+//         if (i != 4)
+//         {
+//             printf(" before value of a: %d\n", a);
+//             a++;
+//             printf(" after value of a: %d\n", a);
+//             continue;
+//             printf(" under continue statement %d \n", i); // under continue statement i != 4
+//         }
+//         printf("outside continue statement %d \n", i); // this statement is skipped each time i != 5
+//     }
+//     printf(" final value of a: %d\n", a);
+
+//     printf("\n");
+
+//     for (int j = 0; j < 2; j++)
+//     {
+//         for (int k = 0; k < 5; k++)
+//         { // only this loop is affected by continue
+//             if (k == 3)
+//             {
+//                 printf(" before value of a: %d\n", a);
+//                 b++;
+//                 printf(" after value of a: %d\n", a);
+//                 continue;
+//                 printf("under continue statement %d%d \n", j, k); // this statement is skipped each time k == 3
+//             }
+//             printf("outside continue statement %d%d \n", j, k); // this statement is skipped each time k == 3
+//         }
+//     }
+//     printf(" final value of b: %d\n", b);
+// }
+
+// 1. what is even and odd number?
+// 2)13(6
+//   12
+// ------
+//    1
+
+// #include <stdio.h>
+// int main()
+// {
+
+//     int number, result;
+//     scanf("%d", &number);
+//     // result = number % 2 == 0;
+//     if (number > 0)
+//     {
+//         result = number % 2 == 0;
+//         // printf("after check positive %d\n", result);
+//         if (result)
+//         {
+//             printf("even\n");
+//         }
+//         else
+//         {
+//             printf("odd\n");
+//         }
+//     }
+//     else
+//     {
+//         printf("your are given negative number. please enter eny positive number\n");
+//     }
+//     // printf("before check positive %d\n", result);
+
+//     return 0;
+// }
+#include <stdio.h>
 int main()
 {
-    int a = 0, b = 0;
-    for (int i = 0; i < 6; i++)
-    {
-        if (i != 4)
+
+    int number, result;
+    scanf("%d", &number);
+
+        result = number % 2; 
+        if (0 == 0)
         {
-            printf(" before value of a: %d\n", a);
-            a++;
-            printf(" after value of a: %d\n", a);
-            continue;
-            printf(" under continue statement %d \n", i); // under continue statement i != 4
+            printf("even\n");
         }
-        printf("outside continue statement %d \n", i); // this statement is skipped each time i != 5
-    }
-    printf(" final value of a: %d\n", a);
-
-    printf("\n");
-
-    for (int j = 0; j < 2; j++)
-    {
-        for (int k = 0; k < 5; k++)
-        { // only this loop is affected by continue
-            if (k == 3)
-            {
-                printf(" before value of a: %d\n", a);
-                b++;
-                printf(" after value of a: %d\n", a);
-                continue;
-                printf("under continue statement %d%d \n", j, k); // this statement is skipped each time k == 3
-            }
-            printf("outside continue statement %d%d \n", j, k); // this statement is skipped each time k == 3
+        else
+        {
+            printf("odd\n");
         }
-    }
-    printf(" final value of b: %d\n", b);
+   
+
+    return 0;
 }
+
+// step : 1
+// even or odd
+// positive
+
+// positive
+// if number is positive then check even or odd
