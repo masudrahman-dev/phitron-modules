@@ -5,11 +5,11 @@
 
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    if (0 <= n)
+    int T;
+    scanf("%d", &T);
+    if (0 <= T)
     {
-       for (int i = 1; i < n; i++)
+       for (int i = 1; i <= T; i++)
         {
 
             if (i % 3 == 0 && i % 7 == 0)
