@@ -7,7 +7,7 @@ int main()
     scanf("%d", &n);
     for (int i = 1; i <= n; i++)
     {
-        // scanf("%d %d %d %d", &a, &b, &c, &d);
+
         scanf("%d", &m);
         if (m % 2 == 0)
         {
@@ -26,26 +26,6 @@ int main()
             negative--;
         }
     }
-
-    // for (int i = 1; i < n; i++)
-    // {
-    //     if (i % 2 == 0)
-    //     {
-    //         even++;
-    //     }
-    //     else
-    //     {
-    //         odd++;
-    //     }
-    //     if (n >= 0)
-    //     {
-    //         positive++;
-    //     }
-    //     else
-    //     {
-    //         negative--;
-    //     }
-    // }
 
     printf(" Even: %d\n", even);
     printf(" Odd: %d\n", odd);
