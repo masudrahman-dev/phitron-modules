@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <limits.h>
 int main()
 {
-    int n, idx, s_value;
+    int n;
     ;
     scanf("%d", &n);
     int arr[n];
@@ -9,19 +10,16 @@ int main()
     {
         scanf("%d", &arr[i]);
     }
-    s_value = arr[0];
-    idx = 0;
+    int s_value = INT_MAX, idx;
     for (int j = 0; j < n; j++)
     {
-        if (s_value > arr[j])
+        if (arr[j] < s_value)
         {
-
             s_value = arr[j];
             idx = j;
-
-            printf("%d %d", s_value, idx + 1);
         }
     }
+    printf("%d %d", s_value, idx + 1);
 
     return 0;
 }
