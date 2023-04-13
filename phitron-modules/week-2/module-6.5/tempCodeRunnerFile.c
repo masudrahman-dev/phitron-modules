@@ -1,2 +1,2 @@
 
-    return 0;
+    int n, first, last;
