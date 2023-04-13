@@ -1,48 +1,33 @@
-// #include <stdio.h>
-// #include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-// int main()
-// {
-//     int n, abs_num;
-//     scanf("%d", &n);
-//     int arr[n];
-//     for (int i = 0; i < n; i++)
-//     {
-//         scanf("%d", &arr[i]);
-//     }
-//     int sum = 0;
-//     for (int i = 0; i < n; i++)
-//     {
-//         sum += arr[i];
-//     }
+int main()
+{
+    int n;
+    long long int abs_num = 0;
+    scanf("%d", &n);
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    long long int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
 
-//     if (sum < 0)
-//     {
-//         abs_num = abs(sum);
-//         printf("%d\n", abs_num);
-//     }
-//     else
-//     {
-//         printf("%d\n", sum);
-//     }
-//     return 0;
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if (sum < 0)
+    {
+        abs_num = labs(sum);
+        printf("%lld", abs_num);
+    }
+    else
+    {
+        printf("%lld", sum);
+    }
+    return 0;
+}
 
 // #include <stdio.h>
 // #include <stdlib.h>
