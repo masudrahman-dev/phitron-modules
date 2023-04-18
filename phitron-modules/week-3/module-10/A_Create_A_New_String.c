@@ -306,22 +306,52 @@
  * C program to find length of a string using strlen() function
  */
 
+// #include <stdio.h>
+// #include <string.h>
+// #define MAX_SIZE 100 // Maximum size of string
+
+// int main()
+// {
+//     char text[MAX_SIZE]; /* Declares a string of size 100 */
+//     int length;
+
+//     printf("Enter any string: ");
+//     gets(text);
+
+//     /* Call strlen() function to count length of string */
+//     length = strlen(text);
+
+//     printf("Length of '%s' = %d", text, length);
+
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main()
+// {
+//     char str1[10000];
+//     char str2[10000];
+//     gets(str1);
+//     gets(str2);
+//     int len1 = strlen(str1);
+//     int len2 = strlen(str2);
+//     printf("%d %d\n%s %s", len1, len2, str1, str2);
+//     return 0;
+// }
 #include <stdio.h>
 #include <string.h>
-#define MAX_SIZE 100 // Maximum size of string
 
 int main()
 {
-    char text[MAX_SIZE]; /* Declares a string of size 100 */
-    int length;
-
-    printf("Enter any string: ");
-    gets(text);
-
-    /* Call strlen() function to count length of string */
-    length = strlen(text);
-
-    printf("Length of '%s' = %d", text, length);
-
+    char str1[10000];
+    char str2[10000];
+    fgets(str1, sizeof(str1), stdin);
+    fgets(str2, sizeof(str2), stdin);
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+    printf("%d %d\n", len1 - 1, len2 - 1);
+    printf("%s %s", str1, str2);
     return 0;
 }
