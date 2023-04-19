@@ -120,25 +120,96 @@
 //         printf("strings are not same");
 //     return 0;
 // }
+// #include <stdio.h>
+// int main() {
+//   printf("short int is %2d bytes \n", sizeof(short int));
+//   printf("int is %2d bytes \n", sizeof(int));
+//   printf("int * is %2d bytes \n", sizeof(int *));
+//   printf("long int is %2d bytes \n", sizeof(long int));
+//   printf("long int * is %2d bytes \n", sizeof(long int *));
+//   printf("signed int is %2d bytes \n", sizeof(signed int));
+//   printf("unsigned int is %2d bytes \n", sizeof(unsigned int));
+//   printf("\n");
+//   printf("float is %2d bytes \n", sizeof(float));
+//   printf("float * is %2d bytes \n", sizeof(float *));
+//   printf("double is %2d bytes \n", sizeof(double));
+//   printf("double * is %2d bytes \n", sizeof(double *));
+//   printf("long double is %2d bytes \n", sizeof(long double));
+//   printf("\n");
+//   printf("signed char is %2d bytes \n", sizeof(signed char));
+//   printf("char is %2d bytes \n", sizeof(char));
+//   printf("char * is %2d bytes \n", sizeof(char *));
+//   printf("unsigned char is %2d bytes \n", sizeof(unsigned char));
+//   return 0;
+// }
+// #include <stdio.h>
+// #include <string.h>
+
+// int main()
+// {
+//     int n;
+//     char str[100];
+//     for (int i = 0; i < n; i++)
+//     {
+//         fgets(str, sizeof(str), stdin);
+//     }
+
+//     for (int i = 0; i < strlen(str); i++)
+//     {
+//         printf("%c", str[i]);
+//     }
+
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main()
+// {
+//     int t;
+//     scanf("%d", &t);
+
+//     while (t--)
+//     {
+//         char s[101];
+//         scanf("%s", s);
+
+//         int len = strlen(s);
+//         if (len <= 10)
+//         {
+//             printf("%s\n", s);
+//         }
+//         else
+//         {
+//             printf("%c%d%c\n", s[0], len - 2, s[len - 1]);
+//         }
+//     }
+
+//     return 0;
+// }
+
 #include <stdio.h>
-int main() {
-  printf("short int is %2d bytes \n", sizeof(short int));
-  printf("int is %2d bytes \n", sizeof(int));
-  printf("int * is %2d bytes \n", sizeof(int *));
-  printf("long int is %2d bytes \n", sizeof(long int));
-  printf("long int * is %2d bytes \n", sizeof(long int *));
-  printf("signed int is %2d bytes \n", sizeof(signed int));
-  printf("unsigned int is %2d bytes \n", sizeof(unsigned int));
-  printf("\n");
-  printf("float is %2d bytes \n", sizeof(float));
-  printf("float * is %2d bytes \n", sizeof(float *));
-  printf("double is %2d bytes \n", sizeof(double));
-  printf("double * is %2d bytes \n", sizeof(double *));
-  printf("long double is %2d bytes \n", sizeof(long double));
-  printf("\n");
-  printf("signed char is %2d bytes \n", sizeof(signed char));
-  printf("char is %2d bytes \n", sizeof(char));
-  printf("char * is %2d bytes \n", sizeof(char *));
-  printf("unsigned char is %2d bytes \n", sizeof(unsigned char));
-  return 0; 
+#include <string.h>
+
+int main()
+{
+    int t;
+    scanf("%d", &t);
+    while (t--)
+    {
+        char s[101];
+        scanf("%s", s);
+        int len = strlen(s);
+        if (len <= 10)
+        {
+            printf("%s\n", s);
+        }
+        else
+        {
+            printf("%c%d%c\n", s[0], len - 2, s[len - 1]);
+        }
+    }
+
+    return 0;
 }
