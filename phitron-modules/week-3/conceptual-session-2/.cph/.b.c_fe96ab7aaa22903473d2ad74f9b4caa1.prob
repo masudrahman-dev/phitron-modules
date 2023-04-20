@@ -1,0 +1,1 @@
+{"name":"Local: b","url":"d:\\Phitron\\Phitron Modules\\phitron-modules\\week-3\\conceptual-session-2\\b.c","tests":[{"id":1682024122456,"input":"aaadf","output":"a : 3\nd : 1\nf : 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Phitron Modules\\phitron-modules\\week-3\\conceptual-session-2\\b.c","group":"local","local":true}
