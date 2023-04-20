@@ -3,7 +3,7 @@
 
 int main()
 {
-    char ch[100];
+    char ch[10000001];
     scanf("%s", ch);
     int cnt[10] = {0};
     for (int i = 0; i < strlen(ch); i++)
