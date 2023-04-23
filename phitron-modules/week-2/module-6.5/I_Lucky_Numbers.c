@@ -7,7 +7,7 @@ int main()
     last = n % 10;
     first = n / 10;
 
-    if (last % first == 0 || first % last ==0)
+    if (last % first == 0 || first % last == 0)
     {
         printf("YES\n");
     }

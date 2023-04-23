@@ -52,14 +52,16 @@
 //     }
 // }
 
+// #define MAX_LENGTH 1000001
+// char s[MAX_LENGTH];
+
 #include <stdio.h>
 #include <string.h>
-#define MAX_LENGTH 1000001
 int main()
 {
-    char s[MAX_LENGTH];
-    fgets(s, sizeof(s), stdin);
-    for (int i = 0; i < strlen(s) - 1; i++)
+    char s[100001];
+    scanf("%s", s);
+    for (int i = 0; i < strlen(s); i++)
     {
         if (s[i] >= 'a' && s[i] <= 'z')
         {
@@ -75,8 +77,7 @@ int main()
         }
     }
     printf("%s", s);
-    // printf("%d\n", ',');
-    // printf("%d\n", ' ');
+
     return 0;
 }
 
