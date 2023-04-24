@@ -108,25 +108,49 @@
 
 //     return 0;
 // }
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
-int main()
-{
+// int main()
+// {
 
-    char c;
-    int alphabet[26] = {0};
-    while (scanf("%c", &c) != EOF)
-    {
-        alphabet[c - 'a']++;
-    }
-    for (int i = 'a'; i <= 'z'; i++)
-    {
-        if (alphabet[i - 'a'] > 0)
-        {
-            printf("%c : %d\n", i, alphabet[i - 'a']);
-        }
-    }
+//     char c;
+//     int alphabet[26] = {0};
+//     while (scanf("%c", &c) != EOF)
+//     {
+//         alphabet['a' - 'a']++;
+//         alphabet[0];
+//     }
+//     for (int i = 'a'; i <= 'z'; i++)
+//     {
+//         if (alphabet[i - 'a'] > 0)
+//         {
+//             printf("%c : %d\n", i, alphabet[i - 'a']);
+//         }
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main()
+// {
+
+  
+    // while ()
+    // {
+    //     alphabet['a' - 'a']++;
+    //     alphabet[0];
+    // }
+    // for (int i = 'a'; i <= 'z'; i++)
+    // {
+    //     if (alphabet[i - 'a'] > 0)
+    //     {
+    //         printf("%c : %d\n", i, alphabet[i - 'a']);
+    //     }
+    // }
+
+//     return 0;
+// }
