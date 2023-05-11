@@ -2,7 +2,62 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+int main()
+{
+    int n = 5, a;
 
+    // printf("Enter number of rows: ");
+    // scanf("%d", &n);
+
+    // for first half portion
+    // from top to bottom
+    for (int i = 1; i <= n; i++)
+    {
+        // In each iteration a will
+        // start from 1
+        a = 1;
+
+        // print space
+        for (int s = i; s <= n; s++)
+        {
+            printf(" ");
+        }
+        int d = 2 * i - 1;
+        // print digit
+        for (int k = 1; k <= d; k++)
+        {
+            printf("%d", a++);
+        }
+
+        // new line
+        printf("\n");
+    }
+
+    // for second portion
+    for (int i = n - 1; i >= 1; i--)
+    {
+        // In each iteration a will
+        // start from 1
+        a = 1;
+
+        // print space
+        for (int s = n; s >= i; s--)
+        {
+            printf(" ");
+        }
+
+        // print digit
+        for (int k = 1; k <= 2 * i - 1; k++)
+        {
+            printf("%d", a++);
+        }
+
+        // new line
+        printf("\n");
+    }
+
+    return 0;
+}
 // int main()
 // {
 //     int n = 5, s, x, y;
@@ -27,45 +82,45 @@
 //     return 0;
 // }
 
-int main()
-{
-    int row = 5;
-    int a = 1;
-    for (int i = 1; i <= row; i++)
-    {
-        for (int s = row; s >= i; s--)
-        {
-            printf("  ");
-        }
-        for (int j = 1; j <= i; j++)
-        {
-            printf("%d ", j);
-        }
-        for (int k = 1; k <= i - 1; k++)
-        {
-            printf("%d ", k);
-        }
+// int main()
+// {
+//     int row = 5;
+//     int a = 1;
+//     for (int i = 1; i <= row; i++)
+//     {
+//         for (int s = row; s >= i; s--)
+//         {
+//             printf("  ");
+//         }
+//         for (int j = 1; j <= i; j++)
+//         {
+//             printf("%d ", j);
+//         }
+//         for (int k = 1; k <= i - 1; k++)
+//         {
+//             printf("%d ", k);
+//         }
 
-        printf("\n");
-    }
-    for (int i = row - 1; i >= 1; i--)
-    {
-        for (int s = row; s >= i; s--)
-        {
-            printf("  ");
-        }
-        for (int j = 1; j <= i; j++)
-        {
-            printf("%d ", j);
-        }
-        for (int k = 1; k <= i - 1; k++)
-        {
-            printf("%d ", k);
-        }
+//         printf("\n");
+//     }
+//     for (int i = row - 1; i >= 1; i--)
+//     {
+//         for (int s = row; s >= i; s--)
+//         {
+//             printf("  ");
+//         }
+//         for (int j = 1; j <= i; j++)
+//         {
+//             printf("%d ", j);
+//         }
+//         for (int k = 1; k <= i - 1; k++)
+//         {
+//             printf("%d ", k);
+//         }
 
-        printf("\n");
-    }
-}
+//         printf("\n");
+//     }
+// }
 
 // int main()
 // {
