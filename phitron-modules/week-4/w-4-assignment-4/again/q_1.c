@@ -2,7 +2,125 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-#include <conio.h>
+
+// int main()
+// {
+//     int n = 5, s, x, y;
+//     // printf("Enter number of rows to show star pattern: ");
+//     // scanf("%d", &n);
+//     for (x = 0; x <= n; x++)
+//     {
+//         for (s = n; s > x; s--)
+//             printf("#");
+//         for (y = 0; y < x; y++)
+//             printf("* ");
+//         printf("\n");
+//     }
+//     for (x = 1; x < n; x++)
+//     {
+//         for (s = 0; s < x; s++)
+//             printf("#");
+//         for (y = n; y > x; y--)
+//             printf("* ");
+//         printf("\n");
+//     }
+//     return 0;
+// }
+
+int main()
+{
+    int row = 5;
+    int a = 1;
+    for (int i = 1; i <= row; i++)
+    {
+        for (int s = row; s >= i; s--)
+        {
+            printf("  ");
+        }
+        for (int j = 1; j <= i; j++)
+        {
+            printf("%d ", j);
+        }
+        for (int k = 1; k <= i - 1; k++)
+        {
+            printf("%d ", k);
+        }
+
+        printf("\n");
+    }
+    for (int i = row - 1; i >= 1; i--)
+    {
+        for (int s = row; s >= i; s--)
+        {
+            printf("  ");
+        }
+        for (int j = 1; j <= i; j++)
+        {
+            printf("%d ", j);
+        }
+        for (int k = 1; k <= i - 1; k++)
+        {
+            printf("%d ", k);
+        }
+
+        printf("\n");
+    }
+}
+
+// int main()
+// {
+//     int n;
+
+//     printf("Enter value of n: ");
+//     scanf("%d", &n);
+
+//     // for first half portion
+//     // from top to bottom
+//     for (int i = 1; i <= n; i++)
+//     {
+//         // print star
+//         for (int j = i; j <= n; j++)
+//         {
+//             printf("*");
+//         }
+//         // print space
+//         for (int k = 1; k < 2 * i - 1; k++)
+//         {
+//             printf(" ");
+//         }
+//         // print star
+//         for (int l = i; l <= n; l++)
+//         {
+//             printf("*");
+//         }
+//         // print new line
+//         printf("\n");
+//     }
+
+//     // for second half portion
+//     for (int i = n - 1; i >= 1; i--)
+//     {
+//         // print star
+//         for (int j = n; j >= i; j--)
+//         {
+//             printf("*");
+//         }
+//         // print space
+//         for (int k = 1; k < 2 * i - 1; k++)
+//         {
+//             printf(" ");
+//         }
+//         // print star
+//         for (int l = n; l >= i; l--)
+//         {
+//             printf("*");
+//         }
+//         // print new line
+//         printf("\n");
+//     }
+
+//     return 0;
+// }
 // int main()
 // {
 //     int n = 5, x, y, k;
