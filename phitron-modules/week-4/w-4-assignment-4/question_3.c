@@ -26,6 +26,6 @@ int main()
 
     int size = sizeof(arr) / sizeof(arr[0]);
     int count = count_before_zero(arr, size);
-    printf(" %d\n", count);
+    printf("%d\n", count);
     return 0;
 }
