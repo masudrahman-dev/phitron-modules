@@ -2,16 +2,16 @@
 
 // int main()
 // {
-//     int n, m, x;
-//     scanf("%d %d", &n, &m); // read input values for n and m
-//     int a[n][m];            // declare a 2D array of size n x m
+//     iint a[n][m];            // declare a 2D array of size n x m
 //     for (int i = 0; i < n; i++)
 //     {
 //         for (int j = 0; j < m; j++)
 //         {
 //             scanf("%d", &a[i][j]); // read input values for array elements
 //         }
-//     }
+//     }nt n, m, x;
+//     scanf("%d %d", &n, &m); // read input values for n and m
+//     
 //     scanf("%d", &x); // read input value for x
 //     int found = 0;   // flag to check if x is found in array
 //     for (int i = 0; i < n; i++)
