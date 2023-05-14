@@ -1,73 +1,91 @@
+// #include <stdio.h>
+// #include <string.h>
+// #include <math.h>
+// #include <stdlib.h>
+
+// int main()
+// {
+//     int n;
+//     scanf("%d", &n);
+//     int arr[n][n];
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = 0; j < n; j++)
+//         {
+//             scanf("%d", &arr[i][j]);
+//         }
+//     }
+//     // printf("\n");
+//     int first = arr[0][0];
+//     int flag = 1;
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = 0; j < n; j++)
+//         {
+
+//             if (i == j && arr[i][i] != first)
+//             {
+//                 flag = 0;
+
+//                 // break;
+//             }
+//             else if (i != j && arr[i][j] != 0)
+//             {
+//                 flag = 0;
+//                 // break;
+//             }
+//                 }
+//         printf("\n");
+//     }
+//     if (flag)
+//     {
+//         printf("YES\n");
+//     }
+//     else
+//     {
+//         printf("NO\n");
+//     }
+
+//     return 0;
+// }
+
 #include <stdio.h>
 
 int main()
 {
-    int row1, col1, row2, col2, i, j, k, matrix1[100][100], matrix2[100][100], product[100][100];
-
-    printf("Enter the number of rows of the first matrix: ");
-    scanf("%d", &row1);
-    printf("Enter the number of columns of the first matrix: ");
-    scanf("%d", &col1);
-
-    printf("Enter the elements of the first matrix:\n");
-    for (i = 0; i < row1; i++)
+    int n, isUnit = 1;
+    scanf("%d", &n);
+    int matrix[n][n];
+    for (int i = 0; i < n; i++)
     {
-        for (j = 0; j < col1; j++)
+        for (int j = 0; j < n; j++)
         {
-            printf("Enter element a%d%d: ", i + 1, j + 1);
-            scanf("%d", &matrix1[i][j]);
+            scanf("%d", &matrix[i][j]);
         }
     }
-
-    printf("Enter the number of rows of the second matrix: ");
-    scanf("%d", &row2);
-    printf("Enter the number of columns of the second matrix: ");
-    scanf("%d", &col2);
-
-    printf("Enter the elements of the second matrix:\n");
-    for (i = 0; i < row2; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (j = 0; j < col2; j++)
+        for (int j = 0; j < n; j++)
         {
-            printf("Enter element b%d%d: ", i + 1, j + 1);
-            scanf("%d", &matrix2[i][j]);
-        }
-    }
-
-    if (col1 != row2)
-    {
-        printf("Error: The matrices cannot be multiplied.\n");
-        return 0;
-    }
-
-    for (i = 0; i < row1; i++)
-    {
-        for (j = 0; j < col2; j++)
-        {
-            product[i][j] = 0;
-        }
-    }
-
-    for (i = 0; i < row1; i++)
-    {
-        for (j = 0; j < col2; j++)
-        {
-            for (k = 0; k < row2; k++)
-            {
-                product[i][j] += matrix1[i][k] * matrix2[k][j];
+            if (i == j && matrix[i][j] != 1)
+            { // checking primary diagonal elements
+                isUnit = 0;
+                break;
+            }
+            if (i != j && matrix[i][j] != 0)
+            { // checking non-diagonal elements
+                isUnit = 0;
+                break;
             }
         }
     }
-
-    printf("The product of the matrices is:\n");
-    for (i = 0; i < row1; i++)
+    if (isUnit)
     {
-        for (j = 0; j < col2; j++)
-        {
-            printf("%d ", product[i][j]);
-        }
-        printf("\n");
+        printf("YES");
     }
-
+    else
+    {
+        printf("NO");
+    }
     return 0;
 }
