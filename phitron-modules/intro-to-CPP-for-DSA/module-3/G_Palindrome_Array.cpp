@@ -10,20 +10,19 @@ int main()
     {
         cin >> arr[i];
     }
-    int flag = 0;
+    int flag = 1;
     int i = 0;
     int j = n - 1;
     while (i < j)
     {
-        if (arr[i] == arr[j])
+        if (arr[i] != arr[j])
         {
-
-            // cout << arr[i] << " ";
-            flag = 1;
+            flag = 0;
         }
         i++;
         j--;
     }
+
     if (flag)
     {
         cout << "YES";
@@ -35,10 +34,11 @@ int main()
     delete[] arr;
     return 0;
 }
-// #include <iostream>
-// #include <vector>
 
-// bool isPalindrome(const std::vector<int> &arr)
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// bool isPalindrome(const vector<int> &arr)
 // {
 //     int left = 0;
 //     int right = arr.size() - 1;
@@ -57,16 +57,16 @@ int main()
 // int main()
 // {
 //     int N;
-//     std::cin >> N;
+//     cin >> N;
 
-//     std::vector<int> arr(N);
+//     vector<int> arr(N);
 //     for (int i = 0; i < N; i++)
-//         std::cin >> arr[i];
+//         cin >> arr[i];
 
 //     if (isPalindrome(arr))
-//         std::cout << "YES" << std::endl;
+//         cout << "YES" << endl;
 //     else
-//         std::cout << "NO" << std::endl;
+//         cout << "NO" << endl;
 
 //     return 0;
 // }

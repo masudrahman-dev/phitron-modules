@@ -3,9 +3,27 @@ using namespace std;
 
 int main()
 {
-  char arr[3];
+  int a, b;
+  char s;
+  cin >> a >> s >> b;
+  // cout << a << s << b;
+  if (s == '<' && (a < b))
+  {
+    cout << "Right";
+  }
+  else if (s == '=' && (a == b))
+  {
+    cout << "Right";
+  }
+  else if (s == '>' && (a > b))
+  {
 
+    cout << "Right";
+  }
+  else
+  {
+    cout << "Wrong";
+  }
 
-
-    return 0;
+  return 0;
 }
