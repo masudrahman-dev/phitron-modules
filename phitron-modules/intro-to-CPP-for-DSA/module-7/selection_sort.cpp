@@ -20,8 +20,8 @@ bool cmp(Student a, Student b)
 }
 int main()
 {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
     Student arr[3];
     for (size_t i = 0; i < 3; i++)
     {
