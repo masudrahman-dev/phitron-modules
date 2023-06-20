@@ -29,6 +29,7 @@ int main()
     two->value = 2;
     three->value = 3;
 
+
     // Connect nodes
     one->next = two;
     two->next = three;
