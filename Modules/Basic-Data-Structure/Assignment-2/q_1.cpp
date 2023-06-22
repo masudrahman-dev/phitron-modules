@@ -188,7 +188,7 @@ Node *createNode(int val)
     return newNode;
 }
 
-void addNode(Node *&head, int val)
+void add_node_tail(Node *&head, int val)
 {
     if (head == NULL)
     {
@@ -205,7 +205,7 @@ void addNode(Node *&head, int val)
     }
 }
 
-void printMaxMin(Node *head)
+void print_result(Node *head)
 {
     int max = INT_MIN;
     int min = INT_MAX;
@@ -239,10 +239,10 @@ int main()
         {
             break;
         }
-        addNode(head, val);
+        add_node_tail(head, val);
     }
 
-    printMaxMin(head);
+    print_result(head);
 
     return 0;
 }
