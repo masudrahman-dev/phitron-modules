@@ -58,7 +58,32 @@ void insert_any_pos(Node *&head, int val, int pos)
     newNode->next = temp->next;
     temp->next = newNode;
 }
+void delete_node(Node *head, int pos)
+{
+    Node *temp = head;
+    for (int i = 0; i < pos - 1; i++)
+    {
+        if (temp == NULL)
+        {
+            cout << "Invalid position!" << endl;
+            return;
+        }
+        temp = temp->next;
+    }
+    Node *deleteNode = temp->next;
+    temp->next = temp->next->next;
+    delete deleteNode;
+    cout << "deleted from position" << endl
+         << endl;
+}
+void delete_head(Node *&head, int pos)
+{
 
+    Node *deleteNode = head;
+    head = head->next;
+    cout << "deleted from head" << endl
+         << endl;
+}
 void print_list(Node *head)
 {
     Node *temp = head;
@@ -81,6 +106,7 @@ int main()
         cout << "Option 1: Insert at Tail" << endl;
         cout << "Option 2: Insert at Head" << endl;
         cout << "Option 3: Insert at Any Position" << endl;
+        cout << "Option 8: Delete at Any Position" << endl;
         cout << "Option 9: Print List" << endl;
 
         int opt;
@@ -113,6 +139,20 @@ int main()
             int pos;
             cin >> pos;
             insert_any_pos(head, val, pos);
+        }
+        else if (opt == 8)
+        {
+            cout << "insert position: ";
+            int pos;
+            cin >> pos;
+            if (pos == 0)
+            {
+                delete_head(head, pos);
+            }
+            else
+            {
+                delete_node(head, pos);
+            }
         }
         else if (opt == 9)
         {
