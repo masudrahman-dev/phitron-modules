@@ -1,68 +1,128 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Node
+// Define a structure for a singly linked list node
+struct Node
 {
-private:
-    int value;
+    int data;
     Node *next;
-
-public:
-    Node(int value);
-    ~Node(); // Destructor
-    void setNext(Node *node);
-    Node *insertAtTail();
-    Node *getNext();
+    Node(int val) : data(val), next(nullptr) {}
 };
 
-Node::Node(int value)
+// Function to insert a new node at the end of the linked list
+void insertAtTail(Node *&head, int val)
 {
-    this->value = value;
-    this->next = nullptr;
-    cout << "Node created with value " << value << endl;
+    Node *newNode = new Node(val);
+    if (head == nullptr)
+    {
+        head = newNode;
+    }
+    else
+    {
+        Node *current = head;
+        while (current->next != nullptr)
+        {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
 }
 
-Node::~Node()
+// Function to remove duplicates from the linked list
+void removeDuplicates(Node *head)
 {
-    cout << "Node with value " << value << " destroyed" << endl;
+    unordered_set<int> seen;
+    Node *current = head;
+    Node *prev = nullptr;
+
+    while (current != nullptr)
+    {
+        if (seen.find(current->data) != seen.end())
+        {
+            // Duplicate found, remove the current node
+            prev->next = current->next;
+            delete current;
+            current = prev->next;
+        }
+        else
+        {
+            seen.insert(current->data);
+            prev = current;
+            current = current->next;
+        }
+    }
 }
 
-void Node::setNext(Node *node)
+// Function to perform selection sort on the linked list
+void sortList(Node *head)
 {
-    next = node;
+    Node *current = head;
+
+    while (current != nullptr)
+    {
+        Node *minNode = current;
+        Node *temp = current->next;
+
+        while (temp != nullptr)
+        {
+            if (temp->data < minNode->data)
+            {
+                minNode = temp;
+            }
+            temp = temp->next;
+        }
+
+        // Swap data values
+        int tempData = current->data;
+        current->data = minNode->data;
+        minNode->data = tempData;
+
+        current = current->next;
+    }
 }
 
-Node *Node::getNext()
+// Function to print the linked list in ascending order
+void printLinkedList(Node *head)
 {
-    return next;
-}
-Node *Node::insertAtTail()
-{
-    
+    Node *current = head;
+    while (current != nullptr)
+    {
+        cout << current->data << " ";
+        current = current->next;
+    }
+    cout << endl;
 }
 
 int main()
 {
-    // Node *Head = new Node(11); // Create the first node on the heap
-    // Node *secondNode = new Node(22);
-    // Head->setNext(secondNode); // Link the first node to the second
-    Node *Head = nullptr;
-    Node *Tail = nullptr;
+    Node *head = nullptr;
+    int val;
+
+    // Read input values until -1 is encountered
     while (true)
     {
-        int val;
         cin >> val;
         if (val == -1)
         {
             break;
         }
-
-        Head = new Node(val);
+        insertAtTail(head, val);
     }
 
-    // Clean up the nodes
-    delete Head;
-    delete Tail;
+    // Remove duplicates
+    removeDuplicates(head);
+    // Sort the linked list in ascending order
+    sortList(head);
+    // Print the linked list in ascending order
+    printLinkedList(head);
+
+    // Clean up memory (free dynamically allocated nodes)
+    while (head != nullptr)
+    {
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+    }
 
     return 0;
 }
