@@ -32,7 +32,6 @@ bool isPalindrome(Node *head)
         fast = fast->next->next;
     }
 
-    // Handle odd-length lists by moving slow one step further
     if (fast != nullptr)
     {
         slow = slow->next;
