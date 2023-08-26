@@ -26,14 +26,12 @@ public:
         head = tail = nullptr;
     }
 
-    // Function to insert a value at the specified index
     void insertAtIndex(int index, int value)
     {
         Node *newNode = new Node(value);
 
         if (index == 0)
         {
-            // Insert at the beginning
             newNode->next = head;
             if (head)
             {
@@ -45,16 +43,15 @@ public:
                 tail = head;
             }
         }
-        else if (index == size())
+        else if (index == len())
         {
-            // Insert at the end
+
             tail->next = newNode;
             newNode->prev = tail;
             tail = newNode;
         }
-        else if (index > 0 && index < size())
+        else if (index > 0 && index < len())
         {
-            // Insert in the middle
             Node *current = head;
             for (int i = 0; i < index; i++)
             {
@@ -67,7 +64,6 @@ public:
         }
         else
         {
-            // Invalid index
             cout << "Invalid" << endl;
             delete newNode;
             return;
@@ -77,7 +73,6 @@ public:
         printRightToLeft();
     }
 
-    // Function to print the linked list from left to right
     void printLeftToRight()
     {
         cout << "L -> ";
@@ -90,7 +85,6 @@ public:
         cout << endl;
     }
 
-    // Function to print the linked list from right to left
     void printRightToLeft()
     {
         cout << "R -> ";
@@ -103,8 +97,7 @@ public:
         cout << endl;
     }
 
-    // Function to get the size of the linked list
-    int size()
+    int len()
     {
         int count = 0;
         Node *current = head;
