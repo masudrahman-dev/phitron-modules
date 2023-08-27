@@ -1,5 +1,4 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node
@@ -29,7 +28,7 @@ public:
     {
         if (isEmpty())
         {
-            return -1; // Stack is empty
+            return -1; 
         }
         int val = top->data;
         Node *temp = top;
@@ -71,7 +70,7 @@ public:
     {
         if (isEmpty())
         {
-            return -1; // Queue is empty
+            return -1; 
         }
         int val = front->data;
         Node *temp = front;
@@ -88,20 +87,20 @@ public:
 
 int main()
 {
-    int N, M;
-    cin >> N >> M;
+    int n, m;
+    cin >> n >> m;
 
     Stack stack;
     Queue queue;
 
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < n; i++)
     {
         int val;
         cin >> val;
         stack.push(val);
     }
 
-    for (int i = 0; i < M; i++)
+    for (int i = 0; i < m; i++)
     {
         int val;
         cin >> val;
