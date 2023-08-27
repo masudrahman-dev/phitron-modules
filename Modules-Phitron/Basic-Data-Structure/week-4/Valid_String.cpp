@@ -1,13 +1,9 @@
-#include <iostream>
-#include <stack>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-// Function to check if the string is valid
 bool isValidString(const string &s)
 {
-    stack<char> st; // Use a stack to keep track of characters
+    stack<char> st;
 
     for (char c : s)
     {
@@ -19,28 +15,28 @@ bool isValidString(const string &s)
         {
             if (c == 'A' && st.top() == 'B')
             {
-                st.pop(); // A deletes previous B
+                st.pop();
             }
             else if (c == 'B' && st.top() == 'A')
             {
-                st.pop(); // B deletes previous A
+                st.pop();
             }
             else
             {
-                st.push(c); // Otherwise, push the character onto the stack
+                st.push(c);
             }
         }
     }
 
-    return st.empty(); // If the stack is empty, the string is valid
+    return st.empty();
 }
 
 int main()
 {
-    int T;
-    cin >> T;
+    int t;
+    cin >> t;
 
-    while (T--)
+    while (t--)
     {
         string s;
         cin >> s;
