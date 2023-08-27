@@ -11,7 +11,11 @@ string mixColors(const string &colors)
 
     for (char color : colors)
     {
-        if (!result.empty())
+        if (!result.empty() && result.top() == color)
+        {
+            result.pop(); // Two same colors vanish each other
+        }
+        else if (!result.empty())
         {
             char topColor = result.top();
             if ((topColor == 'R' && color == 'B') || (topColor == 'B' && color == 'R'))
