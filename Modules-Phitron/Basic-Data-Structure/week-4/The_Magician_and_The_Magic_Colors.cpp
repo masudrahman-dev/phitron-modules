@@ -1,10 +1,6 @@
-#include <iostream>
-#include <stack>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-// Function to determine the result of color mixing
 string mixColors(const string &colors)
 {
     stack<char> result;
@@ -13,34 +9,34 @@ string mixColors(const string &colors)
     {
         if (!result.empty() && result.top() == color)
         {
-            result.pop(); // Two same colors vanish each other
+            result.pop();
         }
         else if (!result.empty())
         {
             char topColor = result.top();
             if ((topColor == 'R' && color == 'B') || (topColor == 'B' && color == 'R'))
             {
-                result.pop(); // Red + Blue = Purple
+                result.pop();
                 result.push('P');
             }
             else if ((topColor == 'R' && color == 'G') || (topColor == 'G' && color == 'R'))
             {
-                result.pop(); // Red + Green = Yellow
+                result.pop();
                 result.push('Y');
             }
             else if ((topColor == 'B' && color == 'G') || (topColor == 'G' && color == 'B'))
             {
-                result.pop(); // Blue + Green = Cyan
+                result.pop();
                 result.push('C');
             }
             else
             {
-                result.push(color); // No mixing, push the color onto the stack
+                result.push(color);
             }
         }
         else
         {
-            result.push(color); // Stack is empty, push the color onto the stack
+            result.push(color);
         }
     }
 
@@ -56,13 +52,13 @@ string mixColors(const string &colors)
 
 int main()
 {
-    int T;
-    cin >> T;
+    int t;
+    cin >> t;
 
-    while (T--)
+    while (t--)
     {
-        int N;
-        cin >> N;
+        int n;
+        cin >> n;
 
         string colors;
         cin >> colors;
