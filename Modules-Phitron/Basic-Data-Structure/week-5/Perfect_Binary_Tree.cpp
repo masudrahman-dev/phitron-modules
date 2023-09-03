@@ -54,62 +54,71 @@ Node *input_tree()
     }
     return root;
 }
-void printReverse(Node *root)
+// Function to count the total number of nodes in the binary tree
+int countNodes(Node *root)
 {
     if (root == nullptr)
     {
-        cout << "Tree not exist." << endl;
-        return;
+        return 0;
     }
 
+    int count = 0;
     queue<Node *> q;
-    vector<vector<int>> levels;
-
     q.push(root);
 
     while (!q.empty())
     {
-        int levelSize = q.size();
-        vector<int> levelNodes;
+        Node *current = q.front();
+        q.pop();
+        count++;
 
-        for (int i = 0; i < levelSize; ++i)
+        if (current->left != nullptr)
         {
-            Node *current = q.front();
-            q.pop();
-
-            levelNodes.push_back(current->val);
-
-            if (current->left != nullptr)
-            {
-                q.push(current->left);
-            }
-
-            if (current->right != nullptr)
-            {
-                q.push(current->right);
-            }
+            q.push(current->left);
         }
 
-        levels.push_back(levelNodes);
+        if (current->right != nullptr)
+        {
+            q.push(current->right);
+        }
     }
 
-    // Print reverse order
-    for (int i = levels.size() - 1; i >= 0; --i)
+    return count;
+}
+
+// Function to check if the binary tree is perfect
+string isPerfectBinaryTree(Node *root)
+{
+    int totalNodes = countNodes(root);
+    int maxHeight = 0;
+    int tempNodes = 1;
+
+    while (tempNodes <= totalNodes)
     {
-        for (int nodeValue : levels[i])
-        {
-            cout << nodeValue << " ";
-        }
+        tempNodes *= 2;
+        maxHeight++;
     }
 
-    cout << endl;
+    int perfectNodes = pow(2, maxHeight) - 1;
+
+    if (totalNodes == perfectNodes)
+    {
+        return "YES";
+    }
+    else
+    {
+        return "NO";
+    }
 }
 
 int main()
 {
+    // Input binary tree
     Node *root = input_tree();
 
-    printReverse(root);
+    // Check if the tree is perfect and output the result
+    string result = isPerfectBinaryTree(root);
+    cout << result << endl;
 
     return 0;
 }

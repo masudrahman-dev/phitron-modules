@@ -15,8 +15,7 @@ public:
     }
 };
 
-// Function to print nodes at a specific level from left to right
-void printNodesAtLevelX(Node *root, int x)
+void printLevelX(Node *root, int x)
 {
     if (root == nullptr)
     {
@@ -119,15 +118,12 @@ Node *input_tree()
 }
 int main()
 {
-    // Input binary tree
     Node *root = input_tree();
 
-    // Input level X
     int x;
     cin >> x;
 
-    // Call the function to print nodes at level X
-    printNodesAtLevelX(root, x);
+    printLevelX(root, x);
 
     return 0;
 }
