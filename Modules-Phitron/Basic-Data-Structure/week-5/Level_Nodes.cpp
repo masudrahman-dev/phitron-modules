@@ -15,55 +15,67 @@ public:
     }
 };
 
-void printReverse(Node *root)
+// Function to print nodes at a specific level from left to right
+void printNodesAtLevelX(Node *root, int x)
 {
     if (root == nullptr)
     {
-        cout << "Tree not exist." << endl;
+        cout << "Invalid" << endl;
         return;
     }
 
     queue<Node *> q;
-    vector<vector<int>> levels;
+    int currentLevel = 0;
 
     q.push(root);
 
-    while (!q.empty())
+    while (!q.empty() && currentLevel <= x)
     {
         int levelSize = q.size();
-        vector<int> levelNodes;
+
+        if (currentLevel == x)
+        {
+            vector<int> levelNodes;
+            for (int i = 0; i < levelSize; ++i)
+            {
+                Node *current = q.front();
+                q.pop();
+                levelNodes.push_back(current->val);
+                if (current->left != nullptr)
+                {
+                    q.push(current->left);
+                }
+                if (current->right != nullptr)
+                {
+                    q.push(current->right);
+                }
+            }
+            for (int val : levelNodes)
+            {
+                cout << val << " ";
+            }
+            cout << endl;
+            return;
+        }
 
         for (int i = 0; i < levelSize; ++i)
         {
             Node *current = q.front();
             q.pop();
-
-            levelNodes.push_back(current->val);
-
             if (current->left != nullptr)
             {
                 q.push(current->left);
             }
-
             if (current->right != nullptr)
             {
                 q.push(current->right);
             }
         }
 
-        levels.push_back(levelNodes);
+        currentLevel++;
     }
 
-    // Print reverse order
-    for (int i = levels.size() - 1; i >= 0; --i)
-    {
-        for (int nodeValue : levels[i])
-        {
-            cout << nodeValue << " ";
-        }
-    }
-
-    cout << endl;
+    cout << "Invalid" << endl;
 }
 Node *input_tree()
 {
@@ -107,9 +119,16 @@ Node *input_tree()
 }
 int main()
 {
+    // Input binary tree
     Node *root = input_tree();
 
-    printReverse(root);
+    // Input level X
+    int x;
+    cin >> x;
+
+    // Call the function to print nodes at level X
+    printNodesAtLevelX(root, x);
 
     return 0;
 }
+
