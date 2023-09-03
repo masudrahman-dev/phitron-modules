@@ -1,6 +1,9 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
 
+using namespace std;
 class Node
 {
 public:
@@ -15,46 +18,57 @@ public:
     }
 };
 
-void min_max(Node *root)
+// Function to print the binary tree in reverse order
+void printReverseTree(Node *root)
 {
     if (root == nullptr)
     {
-        cout << "No leaf nodes found." << endl;
+        cout << "Tree does not exist." << endl;
         return;
     }
 
     queue<Node *> q;
-    q.push(root);
+    vector<vector<int>> levels;
 
-    int maxLeaf = INT_MIN;
-    int minLeaf = INT_MAX;
+    q.push(root);
 
     while (!q.empty())
     {
-        Node *current = q.front();
-        q.pop();
+        int levelSize = q.size();
+        vector<int> levelNodes;
 
-        if (current->left == nullptr && current->right == nullptr)
+        for (int i = 0; i < levelSize; ++i)
         {
-            // leaf node update max and min values
-            maxLeaf = max(maxLeaf, current->val);
-            minLeaf = min(minLeaf, current->val);
+            Node *current = q.front();
+            q.pop();
+
+            levelNodes.push_back(current->val);
+
+            if (current->left != nullptr)
+            {
+                q.push(current->left);
+            }
+
+            if (current->right != nullptr)
+            {
+                q.push(current->right);
+            }
         }
 
-        if (current->left != nullptr)
-        {
-            q.push(current->left);
-        }
+        levels.push_back(levelNodes);
+    }
 
-        if (current->right != nullptr)
+    // Print the levels in reverse order
+    for (int i = levels.size() - 1; i >= 0; --i)
+    {
+        for (int nodeValue : levels[i])
         {
-            q.push(current->right);
+            cout << nodeValue << " ";
         }
     }
 
-    cout << maxLeaf << " " << minLeaf << endl;
+    cout << endl;
 }
-
 Node *input_tree()
 {
     int val;
@@ -97,17 +111,11 @@ Node *input_tree()
 }
 int main()
 {
-
+    // Input binary tree
     Node *root = input_tree();
 
-    if (root == NULL)
-    {
-        cout << "Tree nai" << endl;
-    }
-    else
-    {
-        min_max(root);
-    }
+    // Call the function to print the binary tree in reverse order
+    printReverseTree(root);
 
     return 0;
 }
