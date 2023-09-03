@@ -84,6 +84,6 @@ void level_order(Node *root)
 int main()
 {
     Node *root = input_tree();
-    level_order(root);
+    // level_order(root);
     return 0;
 }

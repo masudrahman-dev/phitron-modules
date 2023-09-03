@@ -12,32 +12,53 @@ struct TreeNode
     TreeNode(int val) : data(val), left(nullptr), right(nullptr) {}
 };
 
-// Function to build a binary tree from level order traversal
-TreeNode *buildTree(const std::vector<int> &nodes)
+// Function to build a binary tree from user input
+TreeNode *buildTreeFromUserInput()
 {
+    std::vector<int> nodes;
+    int value;
+
+    std::cout << "Enter node values for the binary tree (-1 to stop):" << std::endl;
+
+    while (true)
+    {
+        std::cin >> value;
+        if (value == -1)
+            break;
+        nodes.push_back(value);
+    }
+
     if (nodes.empty())
+    {
+        std::cout << "No input provided. Tree is empty." << std::endl;
         return nullptr;
+    }
 
     TreeNode *root = new TreeNode(nodes[0]);
     std::queue<TreeNode *> q;
     q.push(root);
 
-    for (int i = 1; i < nodes.size(); i += 2)
+    int index = 1;
+    while (!q.empty() && index < nodes.size())
     {
         TreeNode *current = q.front();
         q.pop();
 
-        if (nodes[i] != -1)
+        // Left child
+        if (nodes[index] != -1)
         {
-            current->left = new TreeNode(nodes[i]);
+            current->left = new TreeNode(nodes[index]);
             q.push(current->left);
         }
+        index++;
 
-        if (i + 1 < nodes.size() && nodes[i + 1] != -1)
+        // Right child
+        if (index < nodes.size() && nodes[index] != -1)
         {
-            current->right = new TreeNode(nodes[i + 1]);
+            current->right = new TreeNode(nodes[index]);
             q.push(current->right);
         }
+        index++;
     }
 
     return root;
@@ -51,6 +72,7 @@ int sumOfNodes(TreeNode *root)
 
     return root->data + sumOfNodes(root->left) + sumOfNodes(root->right);
 }
+
 // Function to delete the tree and release memory
 void deleteTree(TreeNode *node)
 {
@@ -60,13 +82,18 @@ void deleteTree(TreeNode *node)
     deleteTree(node->left);
     deleteTree(node->right);
     delete node;
-} 
+}
+
 int main()
 {
-    std::vector<int> nodes = {10, 20, 30, 40, 50, -1, 60, -1, -1, -1, -1, -1, -1};
+    // Build the binary tree from user input
+    TreeNode *root = buildTreeFromUserInput();
 
-    // Build the binary tree from the input
-    TreeNode *root = buildTree(nodes);
+    if (root == nullptr)
+    {
+        std::cout << "No tree constructed. Exiting." << std::endl;
+        return 0;
+    }
 
     // Calculate the sum of all node values
     int sum = sumOfNodes(root);

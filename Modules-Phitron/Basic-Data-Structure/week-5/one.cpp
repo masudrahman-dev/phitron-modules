@@ -3,40 +3,79 @@ using namespace std;
 
 class Node
 {
-
 public:
-    int data;
+    int val;
     Node *left;
     Node *right;
     Node(int val)
     {
-        this->data = val;
-        this->left = nullptr;
-        this->right = nullptr;
+        this->val = val;
+        this->left = NULL;
+        this->right = NULL;
     }
-    ~Node() {}
 };
+
+Node *input_tree()
+{
+    int val;
+    cin >> val;
+    Node *root;
+    if (val == -1)
+        root = NULL;
+    else
+        root = new Node(val);
+    queue<Node *> q;
+    if (root)
+        q.push(root);
+    while (!q.empty())
+    {
+        Node *p = q.front();
+        q.pop();
+
+        int l, r;
+        cin >> l >> r;
+        Node *myLeft;
+        Node *myRight;
+        if (l == -1)
+            myLeft = NULL;
+        else
+            myLeft = new Node(l);
+        if (r == -1)
+            myRight = NULL;
+        else
+            myRight = new Node(r);
+
+        p->left = myLeft;
+        p->right = myRight;
+
+        if (p->left)
+            q.push(p->left);
+        if (p->right)
+            q.push(p->right);
+    }
+    return root;
+}
+
+int sumOfNodes(Node *root)
+{
+    if (root == NULL)
+        return 0;
+
+    return root->val + sumOfNodes(root->left) + sumOfNodes(root->right);
+}
 
 int main()
 {
+    Node *root = input_tree();
 
-    vector<int> nodes;
-    int val;
-    while (true)
+    if (root == NULL)
     {
-        cin >> val;
-        if (val == -1)
-        {
-            continue;
-        }
-
-        nodes.push_back(val);
+        cout << "Tree nai" << endl;
     }
-    // vector<int> nodes = {10, 20, 30, 40, 50, -1, 60, -1, -1, -1, -1, -1, -1};
-
-    for (auto &&node : nodes)
+    else
     {
-        cout << node << endl;
+        int sum = sumOfNodes(root);
+        cout << sum << endl;
     }
 
     return 0;
