@@ -54,7 +54,7 @@ Node *input_tree()
     }
     return root;
 }
-// Function to count the total number of nodes in the binary tree
+
 int countNodes(Node *root)
 {
     if (root == nullptr)
@@ -86,8 +86,7 @@ int countNodes(Node *root)
     return count;
 }
 
-// Function to check if the binary tree is perfect
-string isPerfectBinaryTree(Node *root)
+string isPerfect(Node *root)
 {
     int totalNodes = countNodes(root);
     int maxHeight = 0;
@@ -113,11 +112,9 @@ string isPerfectBinaryTree(Node *root)
 
 int main()
 {
-    // Input binary tree
     Node *root = input_tree();
 
-    // Check if the tree is perfect and output the result
-    string result = isPerfectBinaryTree(root);
+       string result = isPerfect(root);
     cout << result << endl;
 
     return 0;
