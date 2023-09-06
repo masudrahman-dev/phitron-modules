@@ -1,18 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
-// Structure to represent a student
 struct Student
 {
     string name;
     int roll;
     int marks;
 
-    Student(string n, int r, int m) : name(n), roll(r), marks(m) {}
+    Student(string n, int r, int m)
+    {
+        this->marks = m;
+        this->name = n;
+        this->roll = r;
+    }
 
-    // Custom comparison operator to compare students based on marks and roll
     bool operator<(const Student &other) const
     {
         if (marks != other.marks)
@@ -25,13 +26,13 @@ struct Student
 
 int main()
 {
-    int N;
-    cin >> N;
+    int n;
+    cin >> n;
 
     vector<Student> students;
-    int maxMarksIndex = -1; // Index of the student with maximum marks
+    int maxMarksInx = -1; 
 
-    for (int i = 0; i < N; ++i)
+    for (int i = 0; i < n; ++i)
     {
         string name;
         int roll, marks;
@@ -39,22 +40,21 @@ int main()
         Student student(name, roll, marks);
         students.push_back(student);
 
-        // Update the student with maximum marks
-        if (maxMarksIndex == -1 || student < students[maxMarksIndex])
+        if (maxMarksInx == -1 || student < students[maxMarksInx])
         {
-            maxMarksIndex = i;
+            maxMarksInx = i;
         }
     }
 
-    int Q;
-    cin >> Q;
+    int q;
+    cin >> q;
 
-    while (Q--)
+    while (q--)
     {
-        int command;
-        cin >> command;
+        int cmd;
+        cin >> cmd;
 
-        if (command == 0)
+        if (cmd == 0)
         {
             string name;
             int roll, marks;
@@ -62,45 +62,44 @@ int main()
             Student student(name, roll, marks);
             students.push_back(student);
 
-            // Update the student with maximum marks
-            if (maxMarksIndex == -1 || student < students[maxMarksIndex])
+
+            if (maxMarksInx == -1 || student < students[maxMarksInx])
             {
-                maxMarksIndex = students.size() - 1;
+                maxMarksInx = students.size() - 1;
             }
 
-            cout << students[maxMarksIndex].name << " " << students[maxMarksIndex].roll << " " << students[maxMarksIndex].marks << endl;
+            cout << students[maxMarksInx].name << " " << students[maxMarksInx].roll << " " << students[maxMarksInx].marks << endl;
         }
-        else if (command == 1)
+        else if (cmd == 1)
         {
-            if (maxMarksIndex == -1)
+            if (maxMarksInx == -1)
             {
                 cout << "Empty" << endl;
             }
             else
             {
-                cout << students[maxMarksIndex].name << " " << students[maxMarksIndex].roll << " " << students[maxMarksIndex].marks << endl;
+                cout << students[maxMarksInx].name << " " << students[maxMarksInx].roll << " " << students[maxMarksInx].marks << endl;
             }
         }
-        else if (command == 2)
+        else if (cmd == 2)
         {
-            if (!students.empty() && maxMarksIndex != -1)
+            if (!students.empty() && maxMarksInx != -1)
             {
-                // Find and erase the student with maximum marks
-                students.erase(students.begin() + maxMarksIndex);
+            
+                students.erase(students.begin() + maxMarksInx);
 
-                // Recalculate the student with maximum marks
-                maxMarksIndex = -1;
+                maxMarksInx = -1;
                 for (int i = 0; i < students.size(); ++i)
                 {
-                    if (maxMarksIndex == -1 || students[i] < students[maxMarksIndex])
+                    if (maxMarksInx == -1 || students[i] < students[maxMarksInx])
                     {
-                        maxMarksIndex = i;
+                        maxMarksInx = i;
                     }
                 }
 
-                if (maxMarksIndex != -1)
+                if (maxMarksInx != -1)
                 {
-                    cout << students[maxMarksIndex].name << " " << students[maxMarksIndex].roll << " " << students[maxMarksIndex].marks << endl;
+                    cout << students[maxMarksInx].name << " " << students[maxMarksInx].roll << " " << students[maxMarksInx].marks << endl;
                 }
                 else
                 {
