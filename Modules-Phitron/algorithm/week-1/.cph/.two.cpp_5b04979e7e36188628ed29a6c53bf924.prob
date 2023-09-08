@@ -1,0 +1,1 @@
+{"name":"Local: two","url":"d:\\Phitron\\Phitron Modules\\Modules-Phitron\\algorithm\\week-1\\two.cpp","tests":[{"id":1694164694445,"input":"8\n-4 0 2 6 9 10 29 54\n29\n","output":"6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Phitron Modules\\Modules-Phitron\\algorithm\\week-1\\two.cpp","group":"local","local":true}
