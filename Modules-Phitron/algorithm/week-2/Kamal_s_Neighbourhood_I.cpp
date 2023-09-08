@@ -1,30 +1,29 @@
-#include <iostream>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
+
 
 int main()
 {
-    int N, E;
-    cin >> N >> E;
+    int n, e;
+    cin >> n >> e;
 
-    // Create an adjacency list to represent the graph
-    vector<vector<int>> adj(N);
-    for (int i = 0; i < E; i++)
+
+    vector<vector<int>> adj(n);
+    for (int i = 0; i < e; i++)
     {
-        int A, B;
-        cin >> A >> B;
-        adj[A].push_back(B);
-        adj[B].push_back(A); // Since it's an undirected graph
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
     }
 
-    int K;
-    cin >> K;
+    int k;
+    cin >> k;
 
-    // Count the number of houses directly connected to Kamal's house (house number K)
-    int directConnections = adj[K].size();
 
-    cout << directConnections << endl;
+    int count = adj[k].size();
+
+    cout << count << endl;
 
     return 0;
 }
