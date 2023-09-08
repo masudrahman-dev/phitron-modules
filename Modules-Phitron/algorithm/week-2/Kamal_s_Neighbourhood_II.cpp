@@ -1,10 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <unordered_set>
+#include <bits/stdc++.h>
+using namespace std;
 
 using namespace std;
 
-void dfs(int current, const vector<vector<int>> &adj, unordered_set<int> &visited)
+void dfs(int current, vector<vector<int>> &adj, unordered_set<int> &visited)
 {
     visited.insert(current);
     for (int neighbor : adj[current])
@@ -18,28 +17,27 @@ void dfs(int current, const vector<vector<int>> &adj, unordered_set<int> &visite
 
 int main()
 {
-    int N, E;
-    cin >> N >> E;
+    int n, e;
+    cin >> n >> e;
+    vector<vector<int>> adj(n);
 
-    // Create an adjacency list to represent the directed graph
-    vector<vector<int>> adj(N);
-    for (int i = 0; i < E; i++)
+    for (int i = 0; i < e; i++)
     {
-        int A, B;
-        cin >> A >> B;
-        adj[A].push_back(B);
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
     }
 
-    int K;
-    cin >> K;
+    int k;
+    cin >> k;
 
     unordered_set<int> visited;
-    dfs(K, adj, visited);
+    dfs(k, adj, visited);
 
-    // Count the number of houses Kamal can go to (including his own house)
-    int reachableHouses = visited.size();
 
-    cout << reachableHouses - 1 << endl;
+    int house = visited.size();
+
+    cout << house - 1 << endl;
 
     return 0;
 }
