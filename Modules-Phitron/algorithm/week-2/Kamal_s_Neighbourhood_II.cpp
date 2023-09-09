@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using namespace std;
 
 void dfs(int current, vector<vector<int>> &adj, unordered_set<int> &visited)
 {

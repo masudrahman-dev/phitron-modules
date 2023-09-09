@@ -25,7 +25,6 @@ int main()
     int n, e;
     cin >> n >> e;
 
-    // Handle nodes outside the range [0, 1000]
     set<int> nodes;
     for (int i = 0; i < e; i++)
     {
@@ -52,13 +51,12 @@ int main()
         }
     }
 
-    // Sort cpm sizes in ascending order
+
     if (!cpm_sizes.empty())
     {
         sort(cpm_sizes.begin(), cpm_sizes.end());
     }
 
-    // Print the sizes of cpms in ascending order
     for (int size : cpm_sizes)
     {
         cout << size << " ";
