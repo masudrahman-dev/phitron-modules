@@ -7,7 +7,7 @@ int getMinDistance(vector<vector<int>> &graph, int source, int destination)
 
     if (source < 0 || source >= n || destination < 0 || destination >= n)
     {
-        return -1; // Invalid source or destination node
+        return -1;
     }
 
     vector<bool> visited(n, false);
@@ -54,10 +54,7 @@ int main()
             graph[a].push_back(b);
             graph[b].push_back(a);
         }
-        else
-        {
-            cerr << "Invalid edge: " << a << " " << b << endl;
-        }
+       
     }
 
     int Q;

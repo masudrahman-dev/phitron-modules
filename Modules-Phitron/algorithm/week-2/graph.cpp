@@ -3,13 +3,6 @@ using namespace std;
 
 bool visited[100];
 
-void dfs(vector<vector<int>> &graph)
-{
-    cout << graph[0][1] << endl;
-
-
-}
-
 int main()
 {
     int n, m;
@@ -27,7 +20,7 @@ int main()
         graph[a].push_back(b);
         graph[b].push_back(a);
     }
-    // dfs(graph);
+
     cout << endl;
 
     // Print the adjacency list

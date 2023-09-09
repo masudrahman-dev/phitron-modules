@@ -1,12 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const int MAX_N = 1001;
 
-
-const int MAX_N = 1001; 
-
-vector<int> adj[MAX_N]; 
-bool visited[MAX_N];  
+vector<int> adj[MAX_N];
+bool visited[MAX_N];
 
 void dfs(int i, vector<int> &cpm)
 {
@@ -27,22 +25,26 @@ int main()
     int n, e;
     cin >> n >> e;
 
+    // Handle nodes outside the range [0, 1000]
+    set<int> nodes;
     for (int i = 0; i < e; i++)
     {
         int a, b;
         cin >> a >> b;
         adj[a].push_back(b);
         adj[b].push_back(a);
+        nodes.insert(a);
+        nodes.insert(b);
     }
 
     vector<int> cpm_sizes;
 
-    for (int i = 0; i < n; i++)
+    for (int node : nodes)
     {
-        if (!visited[i])
+        if (!visited[node])
         {
             vector<int> cpm;
-            dfs(i, cpm);
+            dfs(node, cpm);
             if (cpm.size() > 1)
             {
                 cpm_sizes.push_back(cpm.size());
@@ -61,7 +63,6 @@ int main()
     {
         cout << size << " ";
     }
-
 
     cout << endl;
 
