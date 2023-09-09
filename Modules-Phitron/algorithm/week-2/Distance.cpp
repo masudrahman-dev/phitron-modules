@@ -4,6 +4,12 @@ using namespace std;
 int getMinDistance(vector<vector<int>> &graph, int source, int destination)
 {
     int n = graph.size();
+
+    if (source < 0 || source >= n || destination < 0 || destination >= n)
+    {
+        return -1; // Invalid source or destination node
+    }
+
     vector<bool> visited(n, false);
     queue<int> q;
 
@@ -42,8 +48,16 @@ int main()
     {
         int a, b;
         cin >> a >> b;
-        graph[a].push_back(b);
-        graph[b].push_back(a);
+
+        if (a >= 0 && a < n && b >= 0 && b < n)
+        {
+            graph[a].push_back(b);
+            graph[b].push_back(a);
+        }
+        else
+        {
+            cerr << "Invalid edge: " << a << " " << b << endl;
+        }
     }
 
     int Q;

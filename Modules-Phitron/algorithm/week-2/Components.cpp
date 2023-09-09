@@ -3,10 +3,10 @@ using namespace std;
 
 
 
-const int MAX_N = 1001; // Maximum number of is
+const int MAX_N = 1001; 
 
-vector<int> adj[MAX_N]; // Adjacency list to represent the graph
-bool visited[MAX_N];    // Array to keep track of visited is
+vector<int> adj[MAX_N]; 
+bool visited[MAX_N];  
 
 void dfs(int i, vector<int> &cpm)
 {
@@ -57,15 +57,11 @@ int main()
     }
 
     // Print the sizes of cpms in ascending order
-    // for (int size : cpm_sizes)
-    // {
-    //     cout << size << " ";
-    // }
-
-    for (auto &&size : cpm_sizes)
+    for (int size : cpm_sizes)
     {
-        cout << size << 2;
+        cout << size << " ";
     }
+
 
     cout << endl;
 
