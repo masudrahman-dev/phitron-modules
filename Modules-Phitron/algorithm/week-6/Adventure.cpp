@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int knapsack(int N, int W, vector<int> &w, vector<int> &v)
@@ -28,10 +25,10 @@ int knapsack(int N, int W, vector<int> &w, vector<int> &v)
 
 int main()
 {
-    int T;
-    cin >> T;
+    int t;
+    cin >> t;
 
-    while (T--)
+    while (t--)
     {
         int N, W;
         cin >> N >> W;

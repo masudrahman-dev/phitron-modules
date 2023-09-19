@@ -1,32 +1,31 @@
-#include <iostream>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-bool canDivideChocolates(int N, vector<int> &chocolates)
+
+bool canDivide(int n, vector<int> &chocolates)
 {
     int totalChocolates = 0;
 
-    // Calculate the total number of chocolates in all boxes
-    for (int i = 0; i < N; ++i)
+
+    for (int i = 0; i < n; ++i)
     {
         totalChocolates += chocolates[i];
     }
 
-    // Check if the total number of chocolates is even
+  
     if (totalChocolates % 2 != 0)
     {
-        return false; // If it's odd, can't be divided equally
+        return false; 
     }
 
     int targetChocolates = totalChocolates / 2;
     vector<bool> dp(targetChocolates + 1, false);
 
-    // Base case: It's possible to achieve 0 chocolates
+  
     dp[0] = true;
 
-    // Loop through all boxes and update possibilities for different chocolate counts
-    for (int i = 0; i < N; ++i)
+
+    for (int i = 0; i < n; ++i)
     {
         for (int j = targetChocolates; j >= chocolates[i]; --j)
         {
@@ -34,27 +33,26 @@ bool canDivideChocolates(int N, vector<int> &chocolates)
         }
     }
 
-    // If it's possible to achieve exactly half of the total chocolates, it's possible to divide them equally
     return dp[targetChocolates];
 }
 
 int main()
 {
-    int T;
-    cin >> T;
+    int t;
+    cin >> t;
 
-    while (T--)
+    while (t--)
     {
-        int N;
-        cin >> N;
+        int n;
+        cin >> n;
 
-        vector<int> chocolates(N);
-        for (int i = 0; i < N; ++i)
+        vector<int> chocolates(n);
+        for (int i = 0; i < n; ++i)
         {
             cin >> chocolates[i];
         }
 
-        if (canDivideChocolates(N, chocolates))
+        if (canDivide(n, chocolates))
         {
             cout << "YES" << endl;
         }

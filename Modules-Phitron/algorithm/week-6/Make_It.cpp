@@ -1,44 +1,43 @@
-#include <iostream>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-bool canReachN(int N)
-{
-    // Initialize a vector to store whether it's possible to reach each number from 1 to N
-    vector<bool> dp(N + 1, false);
 
-    // Base case: It's possible to reach 1 by starting from 1
+bool canReachN(int n)
+{
+
+    vector<bool> dp(n + 1, false);
+
+
     dp[1] = true;
 
-    // Loop through all numbers from 1 to N
-    for (int i = 1; i <= N; ++i)
+
+    for (int i = 1; i <= n; ++i)
     {
-        // If it's possible to reach the current number i, update the possibilities for i + 3 and i * 2
+    
         if (dp[i])
         {
-            if (i + 3 <= N)
+            if (i + 3 <= n)
                 dp[i + 3] = true;
-            if (i * 2 <= N)
+            if (i * 2 <= n)
                 dp[i * 2] = true;
         }
     }
 
-    // Check if it's possible to reach N
-    return dp[N];
+
+    return dp[n];
 }
 
 int main()
 {
-    int T;
-    cin >> T;
+    int t;
+    cin >> t;
 
-    while (T--)
+    while (t--)
     {
-        int N;
-        cin >> N;
+        int n;
+        cin >> n;
 
-        if (canReachN(N))
+        if (canReachN(n))
         {
             cout << "YES" << endl;
         }
