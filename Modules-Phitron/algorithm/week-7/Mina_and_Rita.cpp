@@ -2,17 +2,17 @@
 using namespace std;
 
 int main() {
-    int T;
-    cin >> T;
+    int t;
+    cin >> t;
     
-    while (T--) {
+    while (t--) {
         string a, b;
         cin >> a >> b;
         int n = a.size();
         int m = b.size();
         int dp[n + 1][m + 1];
         
-        // Initialize the dp array
+
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= m; j++) {
                 if (i == 0 || j == 0)
@@ -20,7 +20,7 @@ int main() {
             }
         }
         
-        // Calculate the SCS using dynamic programming
+
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (a[i - 1] == b[j - 1]) {
@@ -31,7 +31,7 @@ int main() {
             }
         }
         
-        // The length of the SCS is (n + m - dp[n][m])
+
         cout << n + m - dp[n][m] << endl;
     }
     
